@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: pulsepoll-api
+    runtime: docker
+    rootDir: backend
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: MONGO_URI
+        sync: false
+      - key: MONGO_DB
+        value: pulsepoll
+      - key: REDIS_ADDR
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_ORIGIN
+        sync: false
